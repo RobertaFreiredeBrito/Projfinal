@@ -1,13 +1,13 @@
 const express = require('express');
 const routes = express.Router();
 
-const ClienteController = require("../controllers/ClienteController");
-const ClienteMiddleware = require("../middleware/ClienteMiddleware");
+const ClienteController = require("../controllers/clientesController");
+const ClienteMiddleware = require("../middleware/clienteMiddleware");
 
-routes.get("/clientes", ClienteController.getAll);
-routes.get("/cliente/:id", ClienteMiddleware.validaID, ClienteController.getById);
-routes.post("/clientes", ClienteController.create);
-routes.put("/clientes/id", ClienteMiddleware.validaID, ClienteController.update);
-routes.delete("/clientes/:id", ClienteMiddleware.validaID, ClienteController.del);
+routes.get("/clientes", clientesController.getAll);
+routes.get("/cliente/:id", clienteMiddleware.validaID, clientesController.getById);
+routes.post("/clientes", clientesController.create);
+routes.put("/clientes/id", clienteMiddleware.validaID, clientesController.update);
+routes.delete("/clientes/:id", clienteMiddleware.validaID, clientesController.del);
 
 module.exports = routes

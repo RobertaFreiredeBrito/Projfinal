@@ -1,8 +1,8 @@
 const express = require('express');
 const routes = express.Router();
 
-const ClienteController = require("../controllers/clientesController");
-const ClienteMiddleware = require("../middleware/clienteMiddleware");
+const clientesController = require("../controllers/clientesController");
+const clienteMiddleware = require("../middleware/clienteMiddleware");
 
 routes.get("/clientes", clientesController.getAll);
 routes.get("/cliente/:id", clienteMiddleware.validaID, clientesController.getById);

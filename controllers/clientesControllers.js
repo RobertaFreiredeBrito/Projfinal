@@ -1,5 +1,5 @@
 const req = require("express/lib/request");
-const Cliente = require("../models/Cliente")
+const Cliente = require("../controllers/clientesControllers")
 
 const getAll = async (req, res) => {
     try {

@@ -1,5 +1,5 @@
 const req = require("express/lib/request");
-const Cliente = require("../controllers/clientesControllers")
+const Cliente = require("../models/cliente")
 
 const getAll = async (req, res) => {
     try {
@@ -52,16 +52,23 @@ try {
 const update = async (req, res) => {
     const {nome, idade} = req.body;
 
-    if (!nome || idade) {
+    if (!nome || !idade) {
         res.status(400).send({
         message:"Você não enviou todos os dados para o cadastro",
         });
         return;
-}
+} res.cliente.nome = nome
+res.cliente.idade = idade
+
+try {
+    await res.cliente.save();
+    res.send({ message: "Dados atualizados com sucesso!!!" });
+  } catch (err) {
+    return res.status(500).send({ error: "Erro na criação de cadastro" });
+  }
+
 }
 
-res.cliente.nome = nome
-res.cliente.idade = idade
 
 const del = async (req, res) => {
     try {

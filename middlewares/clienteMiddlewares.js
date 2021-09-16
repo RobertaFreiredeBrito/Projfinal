@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const Cliente = require("..models/cliente");
+const Cliente = require("../models/cliente");
 
 const validaID = async (req, res, next) => {
     const { id } = req.params;

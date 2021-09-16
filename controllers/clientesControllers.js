@@ -1,9 +1,9 @@
 const req = require("express/lib/request");
-const Cliente = require("../models/cliente")
+const Clientes = require("../models/cliente")
 
 const getAll = async (req, res) => {
     try {
-        const clientes = await Cliente.find()
+        const clientes = await Clientes.find()
         return res.send({clientes})
     } catch (err) {
         res.status(500).send({error: err})
@@ -14,7 +14,7 @@ const getById = async (req, res) => {
     const id = req.params.id
 
     try {
-        const cliente = await Cliente.findById(id)
+        const cliente = await Clientes.findById(id)
         if (!cliente) {
             res.status(404).json({message: "Cliente não encontrado"})
             return;

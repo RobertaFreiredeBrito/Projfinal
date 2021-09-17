@@ -19,6 +19,7 @@ const getById = async (req, res) => {
             res.status(404).json({message: "Cliente não encontrado"})
             return;
         }
+        res.send({cliente})
     } catch (err) {
         res.status(500).send({error: err})
     }

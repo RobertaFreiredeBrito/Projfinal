@@ -5,9 +5,9 @@ const clientesControllers = require("../controllers/clientesControllers");
 const clienteMiddleware = require("../middlewares/clienteMiddlewares");
 
 routes.get("/clientes", clientesControllers.getAll);
-routes.get("/cliente/:id", clienteMiddleware.validaID, clientesControllers.getById);
+routes.get("/clientes/:id", clienteMiddleware.validaID, clientesControllers.getById);
 routes.post("/clientes", clientesControllers.create);
-routes.put("/clientes/id", clienteMiddleware.validaID, clientesControllers.update);
+routes.put("/clientes/:id", clienteMiddleware.validaID, clientesControllers.update);
 routes.delete("/clientes/:id", clienteMiddleware.validaID, clientesControllers.del);
 
 module.exports = routes

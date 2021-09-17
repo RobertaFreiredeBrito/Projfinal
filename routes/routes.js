@@ -9,6 +9,6 @@ routes.get("/clientes/:id", clienteMiddleware.validaID, clientesControllers.getB
 routes.post("/clientes", clientesControllers.create);
 routes.put("/clientes/:id", clienteMiddleware.validaID, clientesControllers.update);
 routes.delete("/clientes/:id", clienteMiddleware.validaID, clientesControllers.del);
-routes.get("/clientes", clientesControllers.filter );
+routes.get("/filter", clientesControllers.filter );
 
 module.exports = routes

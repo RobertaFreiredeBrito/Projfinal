@@ -1,14 +1,14 @@
 const req = require("express/lib/request");
 const Clientes = require("../models/cliente")
 
-const getAll = async (req, res) => {
-    try {
-        const clientes = await Clientes.find()
-        return res.send({clientes})
-    } catch (err) {
-        res.status(500).send({error: err})
-    }
-};
+const getAll = async(req, res) => {
+    const cliente = await Clientes.find();
+    if (cliente.length === 0){
+      res.send({ message: "Lista vazia"  });
+    };
+    res.send({ cliente });
+  };
+
 
 const getById = async (req, res) => {
     const id = req.params.id

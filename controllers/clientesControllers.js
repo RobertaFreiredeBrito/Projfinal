@@ -27,14 +27,14 @@ const getById = async (req, res) => {
 const create = async (req, res) => {
     const { nome, idade} = req.body;
 
-    if (!nome || idade) {
+    if (!nome || !idade) {
         res.status(400).send({
             message:"Você não enviou todos os dados para o cadastro",
         });
         return;
 }
 
-const novoCliente = await new Cliente({
+const novoCliente = await new Clientes({
     nome,
     idade,
 });
